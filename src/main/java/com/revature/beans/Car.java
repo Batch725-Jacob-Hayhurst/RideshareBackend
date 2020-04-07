@@ -41,6 +41,9 @@ public class Car implements Serializable {
 	@Positive
 	private int seats;
 	
+	@Positive
+	private int availableSeats;
+	
 	@NotBlank
 	private String make;
 	
@@ -59,11 +62,12 @@ public class Car implements Serializable {
 		super();
 	}
 
-	public Car(int carId, String color, int seats, String make, String model, int year, User user) {
+	public Car(int carId, String color, int seats, int availableSeats, String make, String model, int year, User user) {
 		super();
 		this.carId = carId;
 		this.color = color;
 		this.seats = seats;
+		this.availableSeats = availableSeats;
 		this.make = make;
 		this.model = model;
 		this.year = year;
@@ -92,6 +96,14 @@ public class Car implements Serializable {
 
 	public void setSeats(int seats) {
 		this.seats = seats;
+	}
+	
+	public int getAvailableSeats() {
+		return availableSeats;
+	}
+
+	public void setAvailableSeats(int availableSeats) {
+		this.availableSeats = availableSeats;
 	}
 
 	public String getMake() {
@@ -135,6 +147,7 @@ public class Car implements Serializable {
 		result = prime * result + ((make == null) ? 0 : make.hashCode());
 		result = prime * result + ((model == null) ? 0 : model.hashCode());
 		result = prime * result + seats;
+		result = prime * result + availableSeats;
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		result = prime * result + year;
 		return result;
@@ -171,6 +184,8 @@ public class Car implements Serializable {
 			return false;
 		if (seats != other.seats)
 			return false;
+		if (availableSeats != other.availableSeats)
+			return false;
 		if (user == null) {
 			if (other.user != null)
 				return false;
@@ -182,8 +197,8 @@ public class Car implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Car [carId=" + carId + ", color=" + color + ", seats=" + seats + ", make=" + make + ", model=" + model
-				+ ", year=" + year + ", user=" + user + "]";
+		return "Car [carId=" + carId + ", color=" + color + ", seats=" + seats + ", availableSeats=" + availableSeats
+				+ ", make=" + make + ", model=" + model + ", year=" + year + ", user=" + user + "]";
 	}
 	
 }
