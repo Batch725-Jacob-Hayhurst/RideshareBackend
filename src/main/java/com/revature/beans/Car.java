@@ -41,7 +41,6 @@ public class Car implements Serializable {
 	@Positive
 	private int seats;
 	
-	@Positive
 	private int availableSeats;
 	
 	@NotBlank
