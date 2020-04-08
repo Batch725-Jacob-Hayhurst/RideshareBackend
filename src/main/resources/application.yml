@@ -21,6 +21,13 @@ management:
       enabled: true
     mappings:
       enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: httptrace
+  trace:
+    http:
+      include: RESPONSE_HEADERS, REMOTE_ADDRESS
       
 server:
   port: 9001
