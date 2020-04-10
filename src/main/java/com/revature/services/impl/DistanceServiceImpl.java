@@ -21,6 +21,14 @@ import com.revature.beans.User;
 import com.revature.services.DistanceService;
 import com.revature.services.UserService;
 
+/**
+ * DistanceServiceImpl handles any additional services that need to be made before calling the
+ * repository methods.
+ * 
+ * @author Timothy Mitchell
+ *
+ */
+
 @Service
 public class DistanceServiceImpl implements DistanceService {
 	

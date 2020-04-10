@@ -2,6 +2,13 @@ package com.revature.exceptions;
 
 import java.util.Date;
 
+/**
+ * POJO that gets information pertaining to errors encountered during execution of the program.
+ * 
+ * @author Timothy Mitchell
+ *
+ */
+
 public class ErrorDetails {
 	private Date timestamp;
 	private String message;

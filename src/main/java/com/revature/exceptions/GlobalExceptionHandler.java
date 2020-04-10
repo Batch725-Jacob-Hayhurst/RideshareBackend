@@ -7,6 +7,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+/**
+ * Class that gets information pertaining to exceptions encountered during execution of the program and handles those exceptions.
+ * 
+ * @author Timothy Mitchell
+ *
+ */
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	

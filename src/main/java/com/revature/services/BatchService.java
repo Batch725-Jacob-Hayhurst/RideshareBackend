@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.revature.beans.Batch;
 
+/**
+ * BatchService is an interface that formats the batch service methods.
+ * 
+ * @author Timothy Mitchell
+ *
+ */
+
 public interface BatchService {
 	
 	public List<Batch> getBatches();

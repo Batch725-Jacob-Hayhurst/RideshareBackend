@@ -25,8 +25,11 @@ import org.springframework.web.util.WebUtils;
 
 /**
 * A filter which logs web requests that lead to an error in the system.
+* 
+* @author Judson Higley
 *
 */
+
 @Component
 public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
 
