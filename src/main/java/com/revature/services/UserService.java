@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.revature.beans.User;
 
+/**
+ * UserService is an interface that formats the user service methods.
+ * 
+ * @author Timothy Mitchell
+ *
+ */
+
 public interface UserService {
 	
 	public List<User> getUsers();

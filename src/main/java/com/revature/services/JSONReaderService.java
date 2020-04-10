@@ -12,6 +12,13 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**
+ * JSONReaderService is an interface that formats the json reader service methods.
+ * 
+ * @author Timothy Mitchell
+ *
+ */
+
 public class JSONReaderService {
 	
 	// Method under construction

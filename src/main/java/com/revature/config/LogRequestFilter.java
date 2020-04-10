@@ -25,8 +25,11 @@ import org.springframework.web.util.WebUtils;
 
 /**
 * A filter which logs web requests that lead to an error in the system.
+* 
+* @author Timothy Mitchell
 *
 */
+
 @Component
 public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
 
@@ -41,6 +44,14 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
         return order;
     }
 
+    /**
+	 * Filters the requests and responses and logs exceptions if they are encountered.
+	 * 
+	 * @param request is the HttpServletRequest sent in
+	 * @param response is the HttpServletResponse sent back out
+	 * @param filterChain is used to filter through the requests and responses
+	 */
+    
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
         throws ServletException, IOException {
@@ -62,6 +73,13 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
         }
     }
 
+    /**
+	 * Grabs the body of the request from the http request.
+	 * 
+	 * @param request is the body from the ContentCachingRequestWrapper
+	 * @param trace is the stack trace of a servlet exception
+	 */
+    
     private void getBody(ContentCachingRequestWrapper request, Map<String, Object> trace) {
         // wrap request to make sure we can read the body of the request (otherwise it will be consumed by the actual
         // request handler)
@@ -82,6 +100,13 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
         }
     }
 
+    /**
+	 * Prints out the details of the servlet exception to the log
+	 * 
+	 * @param request from the sent HttpServletRequest
+	 * @param trace is the stack trace of a servlet exception
+	 */
+    
     private void logTrace(HttpServletRequest request, Map<String, Object> trace) {
         Object method = trace.get("method");
         Object path = trace.get("path");
@@ -91,6 +116,14 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
         trace));
     }
 
+    /**
+	 * Gets the servlet request and status and returns the stack trace of a servlet exception.
+	 * 
+	 * @param request from the sent HttpServletRequest
+	 * @param status of the http request
+	 * @return The stack trace of a servlet exception.
+	 */
+    
     protected Map<String, Object> getTrace(HttpServletRequest request, int status) {
         Throwable exception = (Throwable) request.getAttribute("javax.servlet.error.exception");
 

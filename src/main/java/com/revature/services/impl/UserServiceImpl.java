@@ -23,6 +23,12 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository ur;
 	
+	/**
+	 * Calls UserRepository's custom query method getActiveDrivers.
+	 * 
+	 * @return A list of users by isActive
+	 */
+	
 	@Override
 	public List<User> getActiveDrivers() {
 		return ur.getActiveDrivers();

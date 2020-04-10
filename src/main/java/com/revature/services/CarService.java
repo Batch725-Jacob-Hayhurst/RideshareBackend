@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.revature.beans.Car;
 
+/**
+ * CarService is an interface that formats the car service methods.
+ * 
+ * @author Timothy Mitchell
+ *
+ */
+
 public interface CarService {
 	
 	public List<Car> getCars();

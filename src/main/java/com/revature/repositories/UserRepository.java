@@ -50,6 +50,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query("select u from User u where u.isDriver = ?1 and u.batch.batchLocation = ?2")
 	public List<User> getUserByRoleAndLocation(boolean isDriver, String location);
 	
+	/**
+	 * Custom query that uses the @Query annotation to selects a user by isDriver and isActive.
+	 * 
+	 * @return Check {@link com.revature.services.impl.UserServiceImpl}
+	 */
+	
 	@Query("select u from User u where u.isDriver = true and u.isActive = true and u.isAcceptingRides = true")
 	public List<User> getActiveDrivers();
 	

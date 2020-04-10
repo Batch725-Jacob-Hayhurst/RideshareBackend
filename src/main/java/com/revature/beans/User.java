@@ -13,14 +13,20 @@ import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
-
-import org.springframework.stereotype.Component;
+/**
+ * User class that represents each user and their personal information. All users have an id, username, batch, first name, 
+ * last name, email, phone number, boolean representing if they are a driver, boolean representing if they are active, 
+ * boolean representing if they are looking for a ride, a home address, an optional home address line 2, 
+ * a home city, a home state, a home zip code, a work address, a work city, a work state, and a work zip code.
+ * 
+ * @author Timothy Mitchell
+ *
+ */
 
 @Component
 @Entity

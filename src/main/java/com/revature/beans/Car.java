@@ -12,12 +12,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
 /**
- * Car class that represents a user's car. All cars have an id, color, seats, make, model, year
+ * Car class that represents a user's car. All cars have an id, color, seats, available seats, make, model, year,
  * and the corresponding user.
  * 
  * @author Adonis Cabreja

@@ -1,9 +1,8 @@
 package com.revature.config;
 
-import static springfox.documentation.builders.PathSelectors.regex;
-import java.util.Collections;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -13,11 +12,19 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Sets up the configuration for Swagger and sets the title, description, contact, and version 
+ * for the documentation of endpoints.
+ * 
+ * @author Judson Higley
+ *
+ */
+
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
 	/**
-	 * apiInfo consists of metadata for the swagger page.
+	 * ApiInfo consists of metadata for the swagger page.
 	 * 
 	 * @return An ApiInfoBuilder which is used to add custom metadata to a swagger page.
 	 */
