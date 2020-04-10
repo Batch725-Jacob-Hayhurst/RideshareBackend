@@ -18,9 +18,11 @@ import com.revature.services.DistanceService;
 import com.revature.services.UserService;
 
 /**
- * LoginController takes userName  and Password. 
+ * LoginController takes care of handling our requests to /login.
+ * It provides methods that can perform tasks like logging in and retrieving the google maps api key.
  * 
- * @author Bertrick Lappa
+ * @author Timothy Mitchell
+ *
  */
 
 @RestController
@@ -33,6 +35,14 @@ public class LoginController {
 	
 	@Autowired
 	private DistanceService ds;
+	
+	/**
+	 * HTTP GET method (/login)
+	 * 
+	 * @param userName is the user's inputted username
+	 * @param passWord is the user's inputted password
+	 * @return A map of the user if the login is correct or an error statement if the login is incorrect.
+	 */
 	
 	@GetMapping//("/{userName}/{passWord}")
 	public Map<String, Set<String>> login(
@@ -62,6 +72,12 @@ public class LoginController {
 			 return errors;
 		}
 	}
+	
+	/**
+	 * HTTP GET method (/login/getGoogleApi)
+	 * 
+	 * @return The google maps api key if it is an environment variable and correct. If not, the return is an error statement.
+	 */
 	
 	@GetMapping("/getGoogleApi")
 	public Map<String, Set<String>> getGoogleApi() {

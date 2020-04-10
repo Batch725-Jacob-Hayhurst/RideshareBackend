@@ -16,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Sets up the configuration for Swagger and sets the title, description, contact, and version 
  * for the documentation of endpoints.
  * 
- * @author Timothy Mitchell
+ * @author Judson Higley
  *
  */
 
@@ -24,7 +24,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class Swagger2Config {
 	/**
-	 * apiInfo consists of metadata for the swagger page.
+	 * ApiInfo consists of metadata for the swagger page.
 	 * 
 	 * @return An ApiInfoBuilder which is used to add custom metadata to a swagger page.
 	 */
