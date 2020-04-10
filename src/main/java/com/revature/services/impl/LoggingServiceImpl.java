@@ -8,7 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Component;
 
 import com.revature.services.LoggingService;
@@ -16,7 +17,7 @@ import com.revature.services.LoggingService;
 //import lombok.extern.log4j.Log4j2;
 
 @Component
-@Log
+@Slf4j
 public class LoggingServiceImpl implements LoggingService {
     
     @Override
