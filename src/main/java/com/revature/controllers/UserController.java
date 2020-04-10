@@ -90,10 +90,16 @@ public class UserController {
 		for(User d : us.getActiveDrivers()) {
 //			
 			String add = d.gethAddress();
+			String optional2 = d.gethAddress2();
 			String city = d.gethCity();
 			String state = d.gethState();
+			String fullAdd = new String();
 			
-			String fullAdd = add + ", " + city + ", " + state;
+			if (optional2.equals("")) {
+				fullAdd = add + ", " + city + ", " + state;
+			} else {
+				fullAdd = add + " " + optional2 + ", " + city + ", " + state;
+			}
 			
 			destinationList.add(fullAdd);
 //			

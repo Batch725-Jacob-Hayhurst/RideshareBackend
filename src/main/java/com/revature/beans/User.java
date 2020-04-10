@@ -72,6 +72,8 @@ public class User implements Serializable {
 	@NotBlank
 	@Column(name = "h_address")
 	private String hAddress;
+	@Column(name="h_address_2")
+	private String hAddress2;
 	@NotBlank
 	@Column(name = "h_city")
 	private String hCity;
@@ -153,7 +155,7 @@ public class User implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 	public User(int userId, @NotBlank String userName, Batch batch, @NotBlank String firstName,
-			@NotBlank String lastName, @Email String email, @NotBlank String phoneNumber, String hAddress, String hCity,
+			@NotBlank String lastName, @Email String email, @NotBlank String phoneNumber, String hAddress, String hAddress2, String hCity,
 			String hZip, String hState, String wAddress, String wCity, String wZip, String wState) {
 		super();
 		this.userId = userId;
@@ -164,6 +166,7 @@ public class User implements Serializable {
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.hAddress = hAddress;
+		this.hAddress2 = hAddress2;
 		this.hCity = hCity;
 		this.hZip = hZip;
 		this.hState = hState;
@@ -174,7 +177,7 @@ public class User implements Serializable {
 	}
 	public User(int userId, @NotBlank String userName, Batch batch, @NotBlank String firstName,
 			@NotBlank String lastName, @Email String email, @NotBlank String phoneNumber, boolean isDriver,
-			boolean isActive, boolean isAcceptingRides, String hAddress, String hCity, String hZip, String hState,
+			boolean isActive, boolean isAcceptingRides, String hAddress, String hAddress2, String hCity, String hZip, String hState,
 			String wAddress, String wCity, String wZip, String wState) {
 		super();
 		this.userId = userId;
@@ -188,6 +191,7 @@ public class User implements Serializable {
 		this.isActive = isActive;
 		this.isAcceptingRides = isAcceptingRides;
 		this.hAddress = hAddress;
+		this.hAddress2 = hAddress2;
 		this.hCity = hCity;
 		this.hZip = hZip;
 		this.hState = hState;
@@ -264,6 +268,15 @@ public class User implements Serializable {
 
 	public void sethAddress(String hAddress) {
 		this.hAddress = hAddress;
+	}
+	
+	public String gethAddress2() {
+		return hAddress2;
+	}
+
+
+	public void sethAddress2(String hAddress2) {
+		this.hAddress2 = hAddress2;
 	}
 
 
@@ -345,6 +358,7 @@ public class User implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((hAddress == null) ? 0 : hAddress.hashCode());
+		result = prime * result + ((hAddress2 == null) ? 0 : hAddress2.hashCode());
 		result = prime * result + ((hCity == null) ? 0 : hCity.hashCode());
 		result = prime * result + ((hState == null) ? 0 : hState.hashCode());
 		result = prime * result + ((hZip == null) ? 0 : hZip.hashCode());
@@ -417,7 +431,7 @@ public class User implements Serializable {
 		return "User [userId=" + userId + ", userName=" + userName + ", batch=" + batch + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", isDriver="
 				+ isDriver + ", isActive=" + isActive + ", isAcceptingRides=" + isAcceptingRides + ", hAddress="
-				+ hAddress + ", hCity=" + hCity + ", hZip=" + hZip + ", hState=" + hState + ", wAddress=" + wAddress
+				+ hAddress + ", hAddress2=" + hAddress2 + ", hCity=" + hCity + ", hZip=" + hZip + ", hState=" + hState + ", wAddress=" + wAddress
 				+ ", wCity=" + wCity + ", wZip=" + wZip + ", wState=" + wState + "]";
 	}
 
