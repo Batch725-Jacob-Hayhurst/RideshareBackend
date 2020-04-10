@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.revature.beans","l":"Admin"},{"l":"All Classes","url":"allclasses-index.html"}]
