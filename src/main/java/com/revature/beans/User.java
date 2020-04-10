@@ -13,14 +13,12 @@ import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
-
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Component
 @Entity
@@ -238,18 +236,21 @@ public class User implements Serializable {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	@JsonProperty(value="isDriver")
 	public boolean isDriver() {
 		return isDriver;
 	}
 	public void setDriver(boolean isDriver) {
 		this.isDriver = isDriver;
 	}
+	@JsonProperty(value="isActive")
 	public boolean isActive() {
 		return isActive;
 	}
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+	@JsonProperty(value="isAcceptingRides")
 	public boolean isAcceptingRides() {
 		return isAcceptingRides;
 	}
