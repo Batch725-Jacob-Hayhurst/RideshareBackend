@@ -1,6 +1,10 @@
 insert into batches values
 (1, 'Morgantown'),
-(2, 'Virginia');
+(2, 'Reston'),
+(3, 'Dallas'),
+(4, 'Tampa'),
+(5, 'New York City'),
+(6, 'Orlando');
 
 insert into admins values
 (1, 'admin1');
