@@ -15,10 +15,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.stereotype.Component;
 
-<<<<<<< HEAD
 /**
  * User class that represents each user and their personal information. All users have an id, username, batch, first name, 
  * last name, email, phone number, boolean representing if they are a driver, boolean representing if they are active, 
@@ -28,9 +27,6 @@ import org.springframework.stereotype.Component;
  * @author Timothy Mitchell
  *
  */
-=======
-import com.fasterxml.jackson.annotation.JsonProperty;
->>>>>>> 8ff0d588e1444955f4c4a1fc89ddf7907845bc49
 
 @Component
 @Entity
@@ -109,7 +105,6 @@ public class User implements Serializable {
 	public User() {
 		super();
 	}
-
 
 	public User(int userId, @NotBlank @Size(min = 3, max = 12) @Pattern(regexp = "^\\w+\\.?\\w+$") String userName,
 			Batch batch,
@@ -252,21 +247,21 @@ public class User implements Serializable {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	@JsonProperty(value="isDriver")
+//	@JsonProperty(value="isDriver")
 	public boolean isDriver() {
 		return isDriver;
 	}
 	public void setDriver(boolean isDriver) {
 		this.isDriver = isDriver;
 	}
-	@JsonProperty(value="isActive")
+//	@JsonProperty(value="isActive")
 	public boolean isActive() {
 		return isActive;
 	}
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	@JsonProperty(value="isAcceptingRides")
+//	@JsonProperty(value="isAcceptingRides")
 	public boolean isAcceptingRides() {
 		return isAcceptingRides;
 	}
@@ -278,7 +273,6 @@ public class User implements Serializable {
 		return hAddress;
 	}
 
-
 	public void sethAddress(String hAddress) {
 		this.hAddress = hAddress;
 	}
@@ -287,81 +281,65 @@ public class User implements Serializable {
 		return hAddress2;
 	}
 
-
 	public void sethAddress2(String hAddress2) {
 		this.hAddress2 = hAddress2;
 	}
-
 
 	public String gethCity() {
 		return hCity;
 	}
 
-
 	public void sethCity(String hCity) {
 		this.hCity = hCity;
 	}
-
 
 	public String gethZip() {
 		return hZip;
 	}
 
-
 	public void sethZip(String hZip) {
 		this.hZip = hZip;
 	}
-
 
 	public String gethState() {
 		return hState;
 	}
 
-
 	public void sethState(String hState) {
 		this.hState = hState;
 	}
-
 
 	public String getwAddress() {
 		return wAddress;
 	}
 
-
 	public void setwAddress(String wAddress) {
 		this.wAddress = wAddress;
 	}
-
 
 	public String getwCity() {
 		return wCity;
 	}
 
-
 	public void setwCity(String wCity) {
 		this.wCity = wCity;
 	}
-
 
 	public String getwZip() {
 		return wZip;
 	}
 
-
 	public void setwZip(String wZip) {
 		this.wZip = wZip;
 	}
-
 
 	public String getwState() {
 		return wState;
 	}
 
-
 	public void setwState(String wState) {
 		this.wState = wState;
 	}
-
 
 	@Override
 	public int hashCode() {
