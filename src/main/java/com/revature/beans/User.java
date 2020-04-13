@@ -18,6 +18,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
+<<<<<<< HEAD
 /**
  * User class that represents each user and their personal information. All users have an id, username, batch, first name, 
  * last name, email, phone number, boolean representing if they are a driver, boolean representing if they are active, 
@@ -27,6 +28,9 @@ import org.springframework.stereotype.Component;
  * @author Timothy Mitchell
  *
  */
+=======
+import com.fasterxml.jackson.annotation.JsonProperty;
+>>>>>>> 8ff0d588e1444955f4c4a1fc89ddf7907845bc49
 
 @Component
 @Entity
@@ -248,18 +252,21 @@ public class User implements Serializable {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	@JsonProperty(value="isDriver")
 	public boolean isDriver() {
 		return isDriver;
 	}
 	public void setDriver(boolean isDriver) {
 		this.isDriver = isDriver;
 	}
+	@JsonProperty(value="isActive")
 	public boolean isActive() {
 		return isActive;
 	}
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+	@JsonProperty(value="isAcceptingRides")
 	public boolean isAcceptingRides() {
 		return isAcceptingRides;
 	}
