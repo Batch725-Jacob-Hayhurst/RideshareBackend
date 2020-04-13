@@ -40,20 +40,21 @@ public class LoggingServiceImpl implements LoggingService {
         StringBuilder stringBuilder = new StringBuilder();
         Map<String, String> parameters = buildParametersMap(httpServletRequest);
         
-        stringBuilder.append("REQUEST ");
-        stringBuilder.append("method=[").append(httpServletRequest.getMethod()).append("] ");
-        stringBuilder.append("path=[").append(httpServletRequest.getRequestURI()).append("] ");
-        stringBuilder.append("headers=[").append(buildHeadersMap(httpServletRequest)).append("] ");
+        stringBuilder.append("\n");
+        stringBuilder.append("REQUEST \n");
+        stringBuilder.append("method=[").append(httpServletRequest.getMethod()).append("] \n");
+        stringBuilder.append("path=[").append(httpServletRequest.getRequestURI()).append("] \n");
+        stringBuilder.append("headers=[").append(buildHeadersMap(httpServletRequest)).append("] \n");
         
         if (!parameters.isEmpty()) {
-            stringBuilder.append("parameters=[").append(parameters).append("] ");
+            stringBuilder.append("parameters=[").append(parameters).append("] \n");
         }
         
         if (body != null) {
-            stringBuilder.append("body=[" + body + "]");
+            stringBuilder.append("body=[" + body + "] \n");
         }
         
-        log.info(stringBuilder.toString());
+        log.info("\n" + stringBuilder.toString());
     }
     
     /**
@@ -70,13 +71,14 @@ public class LoggingServiceImpl implements LoggingService {
     public void logResponse(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object body) {
         StringBuilder stringBuilder = new StringBuilder();
         
-        stringBuilder.append("RESPONSE ");
-        stringBuilder.append("method=[").append(httpServletRequest.getMethod()).append("] ");
-        stringBuilder.append("path=[").append(httpServletRequest.getRequestURI()).append("] ");
-        stringBuilder.append("responseHeaders=[").append(buildHeadersMap(httpServletResponse)).append("] ");
-        stringBuilder.append("responseBody=[").append(body).append("] ");
+        stringBuilder.append("\n");
+        stringBuilder.append("RESPONSE \n");
+        stringBuilder.append("method=[").append(httpServletRequest.getMethod()).append("] \n");
+        stringBuilder.append("path=[").append(httpServletRequest.getRequestURI()).append("] \n");
+        stringBuilder.append("responseHeaders=[").append(buildHeadersMap(httpServletResponse)).append("] \n");
+        stringBuilder.append("responseBody=[").append(body).append("] \n");
         
-        log.info(stringBuilder.toString());
+        log.info("\n" + stringBuilder.toString());
     }
     
     /**
