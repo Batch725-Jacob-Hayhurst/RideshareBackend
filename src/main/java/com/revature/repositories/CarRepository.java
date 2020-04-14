@@ -1,5 +1,7 @@
 package com.revature.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -26,4 +28,7 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 	
 	@Query("select c from Car c where c.user.userId = ?1")
 	public Car getCarByUserId(int userId);
+	
+	@Query("select c from Car c where c.user.isDriver = true  and c.user.isActive = true and c.user.isAcceptingRides = true  and c.user.batch.batchLocation = ?1")
+	public List<Car> getUserByLocation(String location);
 }
