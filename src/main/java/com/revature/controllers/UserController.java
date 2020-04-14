@@ -136,7 +136,9 @@ public class UserController {
 		} else if (isDriver != null) {
 			return us.getUserByRole(isDriver.booleanValue());
 		} else if (username != null) {
-			return us.getUserByUsername(username);
+			List<User> driverList = new ArrayList<>();
+			driverList.add(us.getUserByUsername(username));
+			return driverList;
 		}
 
 		return us.getUsers();
@@ -263,7 +265,20 @@ public class UserController {
 		return errors;
 
 	}
-
+	
+    /**
+     * HTTP POST method(/username/validate)
+     * 
+     * @param potential username for signup
+     * @return true if username is available
+     * 
+     */
+	
+	@PostMapping("/username/validate")
+	public Boolean isUsernameAvailable(@RequestBody String username) {
+		return us.isUsernameAvailable(username);
+	}
+	
 	/**
 	 * HTTP PUT method (/users)
 	 * 
