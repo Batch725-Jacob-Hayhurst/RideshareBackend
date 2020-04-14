@@ -17,6 +17,7 @@ import com.google.maps.errors.ApiException;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.TravelMode;
 import com.google.maps.model.Unit;
+import com.revature.beans.Car;
 import com.revature.beans.User;
 import com.revature.services.DistanceService;
 import com.revature.services.UserService;
@@ -135,6 +136,81 @@ public class DistanceServiceImpl implements DistanceService {
 			System.out.println(userList);
 		}
 		return userList;
+	}
+	
+	@Override
+	public List<Car> distanceCarMatrix(String[] origins, List<Car> carList)
+			throws ApiException, InterruptedException, IOException {
+		String[] destinations;
+		Map<String, Car> carDestMap = new HashMap<String, Car>();
+
+		List<String> destinationList = new ArrayList<String>();
+
+		for (Car d : carList) {
+
+			String add = d.getUser().gethAddress();
+			String city = d.getUser().gethCity();
+			String state = d.getUser().gethState();
+
+			String fullAdd = add + ", " + city + ", " + state;
+
+			destinationList.add(fullAdd);
+
+			carDestMap.put(fullAdd, d);
+
+		}
+
+		destinations = new String[destinationList.size()];
+		
+		destinations = destinationList.toArray(destinations);
+
+		GeoApiContext context = new GeoApiContext.Builder().apiKey(getGoogleMAPKey()).build();
+		List<Double> arrlist = new ArrayList<Double>();
+		DistanceMatrixApiRequest req = DistanceMatrixApi.newRequest(context);
+		DistanceMatrix t = req.origins(origins).destinations(destinations).mode(TravelMode.DRIVING).units(Unit.IMPERIAL)
+				.await();
+
+		Map<Double, String> unsortMap = new HashMap<>();
+
+		for (int i = 0; i < origins.length; i++) {
+			for (int j = 0; j < destinations.length; j++) {
+				try {
+					arrlist.add((double) t.rows[i].elements[j].distance.inMeters);
+
+					unsortMap.put((double) t.rows[i].elements[j].distance.inMeters, destinations[j]);
+
+				} catch (Exception e) {
+					System.out.println("invalid address: "  + destinations[j]);
+				}
+			}
+		}
+
+		Collections.sort(arrlist);
+
+		List<String> destList = new ArrayList<String>();
+
+		arrlist.removeIf(r -> (arrlist.indexOf(r) > 9));
+
+		Double[] arrArray = new Double[arrlist.size()];
+
+		arrArray = arrlist.toArray(arrArray);
+
+		for (int c = 0; c < arrArray.length; c++) {
+			String destination = unsortMap.get(arrArray[c]);
+			destList.add(destination);
+		}
+		
+		String[] destArray = new String[destList.size()];
+		
+		destArray = destList.toArray(destArray);
+		
+		List<Car> carFinalList = new ArrayList<Car>();
+		
+		for (int x = 0; x < destArray.length; x++) {
+			Car a = carDestMap.get(destArray[x]);
+			carFinalList.add(a);
+		}
+		return carFinalList;
 	}
 
 	/**

@@ -11,7 +11,7 @@ insert into admins values
 
 insert into users values 
 (1, 'gpichmann0@artisteer.com', 'Grady', '5 Carpenter Plaza', '#348', 'New York City', 'NY', '10275', false, false, false, 'Pichmann', '212-374-3466', 'gpichmann0', '30401 Esker Point', 'Des Moines', 'IA', '50347', 1),
-(2, 'smigheli1@indiatimes.com', 'Salvidor', '6371 Elka Court', '', 'Columbus', 'OH', '43220', true, true, true, 'Migheli', '614-513-2776', 'smigheli1', '35747 3rd Park', 'Philadelphia', 'PA', '19131', 1),
+(2, 'smigheli1@indiatimes.com', 'Salvidor', '6371 Ella Court', '', 'Columbus', 'OH', '43220', true, true, true, 'Migheli', '614-513-2776', 'smigheli1', '35747 3rd Park', 'Philadelphia', 'PA', '19131', 1),
 (3, 'fbraunroth2@ebay.co.uk', 'Fabien', '830 Pierstorff Parkway', '', 'Omaha', 'NE', '68197', true, true, true, 'Braunroth', '402-694-8099', 'fbraunroth2', '747 Crownhardt Place', 'New York City', 'NY', '10270', 1),
 (4, 'aocullen3@google.com.au', 'Aldon', '86978 Sage Junction', '', 'Elmira', 'NY', '14905', true, false, false, 'O''Cullen', '607-732-5313', 'aocullen3', '2 Killdeer Avenue', 'Norwalk', 'CT', '06859', 1),
 (5, 'hgledhill4@hatena.ne.jp', 'Hilda', '496 High St', '', 'Morgantown', 'WV', '26505', true, true, true, 'Gledhill', '239-528-0279', 'hgledhill4', '45476 Oriole Drive', 'Winston Salem', 'NC', '27110', 1),
@@ -23,7 +23,7 @@ insert into users values
 (11, 'medmundsa@tiny.cc', 'Marilyn', '357 patteson Drive', '', 'Morgantown', 'WV', '26505', true, true, true, 'Edmunds', '213-600-8430', 'medmundsa', '6 Bay Road', 'Columbia', 'MO', '65218', 1),
 (12, 'wmatissoffb@facebook.com', 'Wynne', '4 Goodland Point', '', 'Oklahoma City', 'OK', '73167', false, false, true, 'Matissoff', '405-888-7795', 'wmatissoffb', '1 Lakeland Way', 'Shawnee Mission', 'KS', '66215', 1),
 (13, 'jlawfulc@simplemachines.org', 'Jozef', '31 Tomscot Hill', '', 'Spokane', 'WA', '99220', false, true, true, 'Lawful', '509-805-2290', 'jlawfulc', '492 Quincy Road', 'Houston', 'TX', '77035', 1),
-(14, 'flancashired@slideshare.net', 'Faythe', '2626 Babcock Road', '', 'San Antonio', 'TX', '78229', true, true, true, 'Lancashire', '216-591-6593', 'flancashired', '1008 Pleasure Terrace', 'San Diego', 'CA', '92176', 2),
+(14, 'flancashired@slideshare.net', 'Faythe', '2626 Babcock Road', '', 'San Antonio', 'TX', '78229', true, true, true, 'Lancashire', '216-591-6593', 'flancashired', '1008 Pleasure Terrace', 'San Diego', 'CA', '92176', 1),
 (15, 'llynnitte@creativecommons.org', 'Lorita', '0889 Randy Way', '', 'Charlotte', 'NC', '28235', true, false, true, 'Lynnitt', '704-705-3599', 'llynnitte', '05579 Clarendon Avenue', 'Los Angeles', 'CA', '90015', 1),
 (16, 'modooghainef@reference.com', 'Marcellina', '300 Jenna Place', '', 'Boise', 'ID', '83757', true, true, false, 'O''Dooghaine', '208-387-2634', 'modooghainef', '27040 Carioca Crossing', 'Detroit', 'MI', '48242', 1),
 (17, 'jsellwoodg@wisc.edu', 'Jaine', '434 Pierstorff Hill', '', 'Wilmington', 'DE', '19892', false, true, false, 'Sellwood', '302-836-7801', 'jsellwoodg', '39 Merry Hill', 'Gadsden', 'AL', '35905', 1),

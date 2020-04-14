@@ -1,10 +1,7 @@
 package com.revature.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -23,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.maps.errors.ApiException;
 import com.revature.beans.Car;
-import com.revature.beans.User;
 import com.revature.services.CarService;
+import com.revature.services.DistanceService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -46,6 +43,9 @@ public class CarController {
 
 	@Autowired
 	private CarService cs;
+	
+	@Autowired
+	private DistanceService ds;
 
 	/**
 	 * HTTP GET method (/cars)
@@ -64,12 +64,11 @@ public class CarController {
 	@GetMapping("/driver/{address}")
 	public List<Car> getTopFiveDrivers(@PathVariable("address") String address)
 			throws ApiException, InterruptedException, IOException {
-		// List<User> aps = new ArrayList<User>();
-		System.out.println(address);
-//		List<String> destinationList = new ArrayList<String>();
-//		String[] origins = { address };
 
-		return cs.getCarByLocation(address);
+		String[] origins = { address };
+		List<Car> carList = cs.getCarByLocation(address);
+		System.out.println(carList);
+		return ds.distanceCarMatrix(origins, carList);
 
 	}
 
