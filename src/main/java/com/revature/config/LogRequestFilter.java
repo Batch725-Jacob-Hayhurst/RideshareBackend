@@ -50,6 +50,8 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
 	 * @param request is the HttpServletRequest sent in
 	 * @param response is the HttpServletResponse sent back out
 	 * @param filterChain is used to filter through the requests and responses
+	 * @throws ServletException
+	 * @throws IOException
 	 */
     
     @Override
