@@ -14,7 +14,7 @@ import com.revature.beans.Car;
 public interface CarService {
 	
 	public List<Car> getCars();
-	public List<Car> getCarByLocation(String location);
+	public List<Car> getCarsByLocation(String location);
 	public Car getCarById(int id);
 	public Car getCarByUserId(int userId);
 	public Car addCar(Car car);

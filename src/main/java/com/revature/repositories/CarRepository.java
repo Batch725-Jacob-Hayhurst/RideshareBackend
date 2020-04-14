@@ -29,6 +29,14 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 	@Query("select c from Car c where c.user.userId = ?1")
 	public Car getCarByUserId(int userId);
 	
+	/**
+	 * Custom query that uses the @Query annotation to select a car that has true values for isDriver, isActive, and isAcceptingRides,
+	 * and also has a user with a batch that matches the location param
+	 * 
+	 * @param location represents the user's batch location
+	 * @return A list of cars that match the query
+	 */
+	
 	@Query("select c from Car c where c.user.isDriver = true  and c.user.isActive = true and c.user.isAcceptingRides = true  and c.user.batch.batchLocation = ?1")
-	public List<Car> getUserByLocation(String location);
+	public List<Car> getCarsByLocation(String location);
 }

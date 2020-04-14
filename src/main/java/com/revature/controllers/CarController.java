@@ -60,16 +60,18 @@ public class CarController {
 		return cs.getCars();
 	}
 
+	/**
+	 * HTTP GET method (/cars/driver/{address})
+	 * 
+	 * @return A list of all the cars that belong to a user that belongs to a batch with the address
+	 */
 	@ApiOperation(value = "Returns user drivers", tags = { "Car" })
 	@GetMapping("/driver/{address}")
-	public List<Car> getTopFiveDrivers(@PathVariable("address") String address)
-			throws ApiException, InterruptedException, IOException {
-
+	public List<Car> getTopCars(@PathVariable("address") String address) throws ApiException, InterruptedException, IOException {
 		String[] origins = { address };
-		List<Car> carList = cs.getCarByLocation(address);
+		List<Car> carList = cs.getCarsByLocation(address);
 		System.out.println(carList);
 		return ds.distanceCarMatrix(origins, carList);
-
 	}
 
 	/**
@@ -82,7 +84,6 @@ public class CarController {
 	@ApiOperation(value = "Returns car by id", tags = { "Car" })
 	@GetMapping("/{id}")
 	public Car getCarById(@PathVariable("id") int id) {
-
 		return cs.getCarById(id);
 	}
 
@@ -96,7 +97,6 @@ public class CarController {
 	@ApiOperation(value = "Returns car by user id", tags = { "Car" })
 	@GetMapping("/users/{userId}")
 	public Car getCarByUserId(@PathVariable("userId") int userId) {
-
 		return cs.getCarByUserId(userId);
 	}
 
@@ -110,7 +110,6 @@ public class CarController {
 	@ApiOperation(value = "Adds a new car", tags = { "Car" })
 	@PostMapping
 	public ResponseEntity<Car> addCar(@Valid @RequestBody Car car) {
-
 		return new ResponseEntity<>(cs.addCar(car), HttpStatus.CREATED);
 	}
 
@@ -124,7 +123,6 @@ public class CarController {
 	@ApiOperation(value = "Updates car by id", tags = { "Car" })
 	@PutMapping
 	public Car updateCar(@Valid @RequestBody Car car) {
-
 		return cs.updateCar(car);
 	}
 
@@ -138,7 +136,6 @@ public class CarController {
 	@ApiOperation(value = "Deletes car by id", tags = { "Car" })
 	@DeleteMapping("/{id}")
 	public String deleteCarById(@PathVariable("id") int id) {
-
 		return cs.deleteCarById(id);
 	}
 }

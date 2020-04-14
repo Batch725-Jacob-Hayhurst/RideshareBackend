@@ -138,6 +138,15 @@ public class DistanceServiceImpl implements DistanceService {
 		return userList;
 	}
 	
+	/**
+	 * This method receives a list of origins and a list of Car objects, determines the distance that a user would
+	 * need to drive to get to their batch location, and returns the 10 closest Cars in a list
+	 * 
+	 * @param origins represents the users batch location
+	 * @param carList a list of cars that we check for distance
+	 * @return A list of cars that have to travel the least distance to their batch location
+	 */
+	
 	@Override
 	public List<Car> distanceCarMatrix(String[] origins, List<Car> carList)
 			throws ApiException, InterruptedException, IOException {
