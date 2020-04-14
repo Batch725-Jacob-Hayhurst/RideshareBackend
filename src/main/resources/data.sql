@@ -11,7 +11,7 @@ insert into admins values
 
 insert into users values 
 (1, 'gpichmann0@artisteer.com', 'Grady', '5 Carpenter Plaza', '#348', 'New York City', 'NY', '10275', false, false, false, 'Pichmann', '212-374-3466', 'gpichmann0', '30401 Esker Point', 'Des Moines', 'IA', '50347', 1),
-(2, 'smigheli1@indiatimes.com', 'Salvidor', '6371 Elka Court', '', 'Columbus', 'OH', '43220', true, true, true, 'Migheli', '614-513-2776', 'smigheli1', '35747 3rd Park', 'Philadelphia', 'PA', '19131', 1),
+(2, 'smigheli1@indiatimes.com', 'Salvidor', '6371 Ella Court', '', 'Columbus', 'OH', '43220', true, true, true, 'Migheli', '614-513-2776', 'smigheli1', '35747 3rd Park', 'Philadelphia', 'PA', '19131', 1),
 (3, 'fbraunroth2@ebay.co.uk', 'Fabien', '830 Pierstorff Parkway', '', 'Omaha', 'NE', '68197', true, true, true, 'Braunroth', '402-694-8099', 'fbraunroth2', '747 Crownhardt Place', 'New York City', 'NY', '10270', 1),
 (4, 'aocullen3@google.com.au', 'Aldon', '86978 Sage Junction', '', 'Elmira', 'NY', '14905', true, false, false, 'O''Cullen', '607-732-5313', 'aocullen3', '2 Killdeer Avenue', 'Norwalk', 'CT', '06859', 1),
 (5, 'hgledhill4@hatena.ne.jp', 'Hilda', '496 High St', '', 'Morgantown', 'WV', '26505', true, true, true, 'Gledhill', '239-528-0279', 'hgledhill4', '45476 Oriole Drive', 'Winston Salem', 'NC', '27110', 1),
