@@ -37,7 +37,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	 */
 	
 	@Query("select u from User u where u.userName = ?1")
-	public List<User> getUserByUsername(String username);
+	public User getUserByUsername(String username);
 	
 	/**
 	 * Custom query that uses the @Query annotation to select a user by isDriver and location.
