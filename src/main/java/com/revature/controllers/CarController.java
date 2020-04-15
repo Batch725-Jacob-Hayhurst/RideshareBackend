@@ -71,7 +71,7 @@ public class CarController {
 		String[] origins = { address };
 		List<Car> carList = cs.getCarsByLocation(address);
 		System.out.println(carList);
-		return ds.distanceCarMatrix(origins, carList);
+		return ds.distanceCarMatrix(origins, carList, 10);
 	}
 
 	/**
