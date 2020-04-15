@@ -69,8 +69,7 @@ public class UserControllerTest {
 	@Test
 	public void testGettingUserByUsername() throws Exception {
 		
-		List<User> users = new ArrayList<>();
-		users.add(new User(1, "userName", new Batch(), "adonis", "cabreja", "adonis@gmail.com", "123-456-789"));
+		User users = new User(1, "userName", new Batch(), "adonis", "cabreja", "adonis@gmail.com", "123-456-789");
 		when(us.getUserByUsername("userName")).thenReturn(users);
 		
 		mvc.perform(get("/users?username=userName"))
