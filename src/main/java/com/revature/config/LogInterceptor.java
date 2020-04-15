@@ -21,7 +21,7 @@ import com.revature.services.LoggingService;
 @Component
 public class LogInterceptor implements HandlerInterceptor {
     
-    @Autowired
+	@Autowired
     LoggingService loggingService;
     
     /**

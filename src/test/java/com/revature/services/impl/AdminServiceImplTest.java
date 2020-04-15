@@ -18,7 +18,7 @@ import com.revature.repositories.AdminRepository;
 @RunWith(SpringRunner.class)
 public class AdminServiceImplTest {
 	
-	@InjectMocks
+	@Mock
 	private AdminServiceImpl asi;
 	
 	@Mock
