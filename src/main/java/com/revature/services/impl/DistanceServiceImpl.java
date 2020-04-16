@@ -17,6 +17,7 @@ import com.google.maps.errors.ApiException;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.TravelMode;
 import com.google.maps.model.Unit;
+import com.revature.beans.Car;
 import com.revature.beans.User;
 import com.revature.services.DistanceService;
 import com.revature.services.UserService;
@@ -44,7 +45,7 @@ public class DistanceServiceImpl implements DistanceService {
 	 */
 	
 	@Override
-	public List<User> distanceMatrix(String[] origins, String[] destinations)
+	public List<User> distanceMatrix(String[] origins, String[] destinations) //NOTE: This was created by a previous team and is not being used
 			throws ApiException, InterruptedException, IOException {
 
 		Map<String, User> userDestMap = new HashMap<String, User>();
@@ -136,7 +137,93 @@ public class DistanceServiceImpl implements DistanceService {
 		}
 		return userList;
 	}
+	
+	/**
+	 * This method receives a list of origins and a list of Car objects, determines the distance that a user would
+	 * need to drive to get to their batch location, and returns the n closest Cars in a list where n is numCars
+	 * 
+	 * @param origins represents the users batch location
+	 * @param carList a list of cars that we check for distance
+	 * @param numCars The max number of cars that will be returned in the list
+	 * @return A list of cars that have to travel the least distance to their batch location
+	 */
+	
+	@Override
+	public List<Car> distanceCarMatrix(String[] origins, List<Car> carList, int numCars)
+			throws ApiException, InterruptedException, IOException {
+		
+		Map<String, Car> carDestMap = new HashMap<String, Car>();
+		List<String> destinationList = new ArrayList<String>();
+		List<Double> distanceList = new ArrayList<Double>();
+		Map<Double, String> unsortedMap = new HashMap<>();
 
+		// Here we set up the list of our addresses, put them in data structures
+		destinationAddressSetup(carList, destinationList, carDestMap); 
+		
+		// Here we calculate the distances for our lists using Google maps API
+		calculateDistances(origins, destinationList, distanceList, unsortedMap); 
+
+		Collections.sort(distanceList);
+		distanceList.removeIf(r -> (distanceList.indexOf(r) > (numCars-1)));
+
+		List<Car> carFinalList = new ArrayList<Car>();
+		for (int i = 0; i < distanceList.size(); i++) {
+			Car currCar = carDestMap.get(unsortedMap.get(distanceList.get(i)));
+			carFinalList.add(currCar);
+		}
+		
+		return carFinalList;
+	}
+	
+	/**
+	 * This method calculates distances from user location to batch destination using Google Maps API
+	 * 
+	 * @param origins The batch location
+	 * @param destinationList a List of user locations
+	 * @param distanceList An empty List<Double> that will be populated with the list of distances
+	 * @param unsortedMap An empty Map<Double, String> that will be populated with key value pairs where the key is
+	 * the distance, and the value is the destination as a String
+	 */
+	public void calculateDistances(String[] origins, List<String> destinationList, List<Double> distanceList, Map<Double, String> unsortedMap) throws ApiException, InterruptedException, IOException {
+		
+		String [] destinations = destinationList.toArray(new String[destinationList.size()]);
+		GeoApiContext context = new GeoApiContext.Builder().apiKey(getGoogleMAPKey()).build();
+		DistanceMatrixApiRequest req = DistanceMatrixApi.newRequest(context);
+		DistanceMatrix distanceMatrix = req.origins(origins).destinations(destinations).mode(TravelMode.DRIVING).units(Unit.IMPERIAL).await();
+		
+		for (int i = 0; i < origins.length; i++) {
+			for (int j = 0; j < destinations.length; j++) {
+				try {
+					distanceList.add((double) distanceMatrix.rows[i].elements[j].distance.inMeters);
+					unsortedMap.put((double) distanceMatrix.rows[i].elements[j].distance.inMeters, destinations[j]);
+				} catch (Exception e) {
+					System.out.println("invalid address: "  + destinations[j]);
+				}
+			}
+		}
+	}
+	
+
+	/**
+	 * This method populates the desinationList and carDestMap in preparation for calculating the distances
+	 * 
+	 * @param carList The list of cars that we will use to populate the lists
+	 * @param destinationList An empty List<String> that we will populate with a list of destinations
+	 * @param carDestMap An empty Map<String, Car> that we will populate with key value pairs where the key is 
+	 * the address, and the value is a Car object
+	 */
+	public void destinationAddressSetup(List<Car> carList, List<String> destinationList, Map<String, Car> carDestMap) {
+		for (Car d : carList) {
+			String add = d.getUser().gethAddress();
+			String city = d.getUser().gethCity();
+			String state = d.getUser().gethState();
+			String fullAdd = add + ", " + city + ", " + state;
+			
+			destinationList.add(fullAdd);
+			carDestMap.put(fullAdd, d);
+		}
+	}
+	
 	/**
 	 * Gets the Google Maps API Key from the list of environment variables.
 	 * 

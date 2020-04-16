@@ -22,7 +22,7 @@ import org.json.simple.parser.ParseException;
 public class JSONReaderService {
 	
 	// Method under construction
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Map<Integer, String> dataMapper() {
 		JSONParser jsonParser = new JSONParser();
 		FileReader dataReady = null;
@@ -71,7 +71,7 @@ public class JSONReaderService {
 		
 	}
 	
-	@SuppressWarnings("unchecked") 
+	@SuppressWarnings({ "unchecked", "rawtypes" }) 
 	public static ArrayList<Object> dataCleaner() {
 
 		// JSON parser object to parse read file

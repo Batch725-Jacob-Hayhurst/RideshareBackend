@@ -33,6 +33,17 @@ public class CarServiceImpl implements CarService {
 	public List<Car> getCars() {
 		return cr.findAll();
 	}
+	
+	/**
+	 * Calls CarRepository's custom query getCarByLocation.
+	 * 
+	 * @param location A string of the location that we will use to query the database
+	 * @return A list of all the cars with users that belong to a batch in that location.
+	 */
+	@Override
+	public List<Car> getCarsByLocation(String location) {
+		return cr.getCarsByLocation(location);
+	}
 
 	/**
 	 * Calls CarRepository's getOne method found in the JpaRepository.

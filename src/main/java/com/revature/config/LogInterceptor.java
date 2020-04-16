@@ -11,11 +11,27 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.revature.services.LoggingService;
 
+/**
+* LogInterceptor handles and logs all HttpServletRequests and Responses.
+* 
+* @author Timothy Mitchell
+*
+*/
+
 @Component
 public class LogInterceptor implements HandlerInterceptor {
     
-    @Autowired
+	@Autowired
     LoggingService loggingService;
+    
+    /**
+	 * Filters the requests and responses and logs exceptions if they are encountered.
+	 * 
+	 * @param request is the HttpServletRequest sent in
+	 * @param response is the HttpServletResponse sent back out
+	 * @param handler is used to handle what gets handled in the logging
+	 * @return returns a boolean of true
+	 */
     
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, 

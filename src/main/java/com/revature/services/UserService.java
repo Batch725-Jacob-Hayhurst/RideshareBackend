@@ -15,11 +15,12 @@ public interface UserService {
 	
 	public List<User> getUsers();
 	public User getUserById(int id);
-	public List<User> getUserByUsername(String username);
+	public User getUserByUsername(String username);
 	public List<User> getUserByRole(boolean isDriver);
 	public List<User> getUserByRoleAndLocation(boolean isDriver, String location);
 	public User addUser(User user);
 	public User updateUser(User user);
 	public String deleteUserById(int id);
 	public List<User> getActiveDrivers();
+	public Boolean isUsernameAvailable(String username);
 }

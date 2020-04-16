@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -18,7 +17,7 @@ import com.revature.repositories.AdminRepository;
 @RunWith(SpringRunner.class)
 public class AdminServiceImplTest {
 	
-	@InjectMocks
+	@Mock
 	private AdminServiceImpl asi;
 	
 	@Mock

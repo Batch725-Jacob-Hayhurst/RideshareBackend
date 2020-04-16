@@ -2,7 +2,6 @@ package com.revature.controllers;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -60,11 +59,13 @@ public class LoginController {
 		if (errors.isEmpty()) {
 			Map<String, Set<String>> info = new HashMap<>();
 			//call login service here
-			List<User> u=us.getUserByUsername(userName);
-			if(u.size() != 0) {
-			   info.computeIfAbsent("name", key -> new HashSet<>()).add(u.get(0).getFirstName()+" "+u.get(0).getLastName());
-			   info.computeIfAbsent("userid", key -> new HashSet<>()).add(u.get(0).getUserId()+"");
-			   info.computeIfAbsent("batchLoc", key -> new HashSet<>()).add(u.get(0).getBatch().getBatchLocation());
+
+			User u=us.getUserByUsername(userName);
+			if(u != null) {
+			   info.computeIfAbsent("name", key -> new HashSet<>()).add(u.getFirstName()+" "+u.getLastName());
+			   info.computeIfAbsent("userid", key -> new HashSet<>()).add(u.getUserId()+"");
+			   info.computeIfAbsent("batchLoc", key -> new HashSet<>()).add(u.getBatch().getBatchLocation());
+
 			}else {
 				info.computeIfAbsent("userNotFound", key -> new HashSet<>()).add("User not found!");
 			}

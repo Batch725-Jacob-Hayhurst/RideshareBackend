@@ -1,5 +1,5 @@
 /**
- * Package that configures errors and documentation pertaining to web requests.
+ * Package that configures errors, documentation, and logging pertaining to web requests.
  * 
  * @author Timothy Mitchell
  * 

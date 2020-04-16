@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	
 	@Override
-	public List<User> getUserByUsername(String username) {
+	public User getUserByUsername(String username) {
 		return ur.getUserByUsername(username);
 	}
 	
@@ -129,6 +129,15 @@ public class UserServiceImpl implements UserService {
 	public String deleteUserById(int id) {
 		ur.deleteById(id);
 		return "User with id: " + id + " was deleted.";
+	}
+
+	@Override
+	public Boolean isUsernameAvailable(String username) {
+		if(this.getUserByUsername(username)==null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
