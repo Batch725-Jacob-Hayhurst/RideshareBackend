@@ -15,19 +15,26 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.filter.TypeExcludeFilters;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.advice.CustomRequestBodyAdviceAdapter;
+import com.revature.advice.CustomResponseBodyAdviceAdapter;
 import com.revature.beans.Admin;
+import com.revature.config.WebConfig;
 import com.revature.services.AdminService;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(AdminController.class)
+@WebMvcTest(controllers = AdminController.class, excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {CustomRequestBodyAdviceAdapter.class, CustomResponseBodyAdviceAdapter.class, WebConfig.class})})
 public class AdminControllerTest {
 	
 	@Autowired
@@ -35,6 +42,9 @@ public class AdminControllerTest {
 	
 	@Autowired
 	private ObjectMapper om;
+	
+	@InjectMocks
+	private AdminController adminController;
 	
 	@MockBean
 	private AdminService as;
