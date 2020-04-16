@@ -64,9 +64,11 @@ public class LoginController {
 			if(u.size() != 0) {
 			   info.computeIfAbsent("name", key -> new HashSet<>()).add(u.get(0).getFirstName()+" "+u.get(0).getLastName());
 			   info.computeIfAbsent("userid", key -> new HashSet<>()).add(u.get(0).getUserId()+"");
+			   info.computeIfAbsent("batchLoc", key -> new HashSet<>()).add(u.get(0).getBatch().getBatchLocation());
 			}else {
 				info.computeIfAbsent("userNotFound", key -> new HashSet<>()).add("User not found!");
 			}
+			System.out.println(info);
 			return info;
 		}else {
 			 return errors;
