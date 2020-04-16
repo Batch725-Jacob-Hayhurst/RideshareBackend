@@ -59,13 +59,17 @@ public class LoginController {
 		if (errors.isEmpty()) {
 			Map<String, Set<String>> info = new HashMap<>();
 			//call login service here
+
 			User u=us.getUserByUsername(userName);
 			if(u != null) {
 			   info.computeIfAbsent("name", key -> new HashSet<>()).add(u.getFirstName()+" "+u.getLastName());
 			   info.computeIfAbsent("userid", key -> new HashSet<>()).add(u.getUserId()+"");
+			   info.computeIfAbsent("batchLoc", key -> new HashSet<>()).add(u.getBatch().getBatchLocation());
+
 			}else {
 				info.computeIfAbsent("userNotFound", key -> new HashSet<>()).add("User not found!");
 			}
+			System.out.println(info);
 			return info;
 		}else {
 			 return errors;
