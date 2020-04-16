@@ -2,7 +2,6 @@ package com.revature.config;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
