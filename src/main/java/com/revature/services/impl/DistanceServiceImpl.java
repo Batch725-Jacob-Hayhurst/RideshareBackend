@@ -83,15 +83,15 @@ public class DistanceServiceImpl implements DistanceService {
 		for (int i = 0; i < origins.length; i++) {
 			for (int j = 0; j < destinations.length; j++) {
 				try {
-					System.out.println((j + 1) + "): " + t.rows[i].elements[j].distance.inMeters + " meters");
+//					System.out.println((j + 1) + "): " + t.rows[i].elements[j].distance.inMeters + " meters");
 					arrlist.add((double) t.rows[i].elements[j].distance.inMeters);
 
 					unsortMap.put((double) t.rows[i].elements[j].distance.inMeters, destinations[j]);
 
-					System.out.println((double) t.rows[i].elements[j].distance.inMeters);
+//					System.out.println((double) t.rows[i].elements[j].distance.inMeters);
 
 				} catch (Exception e) {
-					System.out.println("invalid address");
+//					System.out.println("invalid address");
 				}
 			}
 		}
@@ -101,11 +101,11 @@ public class DistanceServiceImpl implements DistanceService {
 //                .forEachOrdered(x -> sortedMap.put(x.getKey(), x.getValue()));
 //		
 
-		System.out.println("-");
+//		System.out.println("-");
 
 		Collections.sort(arrlist);
 
-		System.out.println(arrlist);
+//		System.out.println(arrlist);
 		List<String> destList = new ArrayList<String>();
 
 		arrlist.removeIf(r -> (arrlist.indexOf(r) > 4));
@@ -114,14 +114,14 @@ public class DistanceServiceImpl implements DistanceService {
 
 		arrArray = arrlist.toArray(arrArray);
 
-		System.out.println(arrArray);
+//		System.out.println(arrArray);
 
 		for (int c = 0; c < arrArray.length; c++) {
 			String destination = unsortMap.get(arrArray[c]);
 			destList.add(destination);
 		}
 		
-		System.out.println(destList);
+//		System.out.println(destList);
 		
 		String[] destArray = new String[destList.size()];
 		
@@ -131,9 +131,9 @@ public class DistanceServiceImpl implements DistanceService {
 		
 		for (int x = 0; x < destArray.length; x++) {
 			User a = userDestMap.get(destArray[x]);
-			System.out.println(a);
+//			System.out.println(a);
 			userList.add(a);
-			System.out.println(userList);
+//			System.out.println(userList);
 		}
 		return userList;
 	}
@@ -197,7 +197,7 @@ public class DistanceServiceImpl implements DistanceService {
 					distanceList.add((double) distanceMatrix.rows[i].elements[j].distance.inMeters);
 					unsortedMap.put((double) distanceMatrix.rows[i].elements[j].distance.inMeters, destinations[j]);
 				} catch (Exception e) {
-					System.out.println("invalid address: "  + destinations[j]);
+//					System.out.println("invalid address: "  + destinations[j]);
 				}
 			}
 		}
