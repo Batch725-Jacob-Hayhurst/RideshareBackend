@@ -9,6 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 
 /**
  * Class that gets information pertaining to exceptions encountered during execution of the program and handles those exceptions.
+ * Includes both implementation specfically for 404 exceptions and also a generic method that handles all other exceptions.
  * 
  * @author Timothy Mitchell
  *
