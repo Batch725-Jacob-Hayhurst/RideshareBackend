@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAd
 import com.revature.services.LoggingService;
 
 /**
- * Creates advice to convert RequestBody's during method transfer to an endpoint into an unserialized form, in order to be read, and then back into a serialized form.
+ * Creates advice to convert the bodies of requests during transfer from the client to an endpoint into an unserialized form, in order to be read, and then back into a serialized form.
  * 
  * @author Timothy Mitchell
  *

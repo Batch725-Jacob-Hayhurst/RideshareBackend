@@ -3,9 +3,9 @@ package com.revature.exceptions;
 import java.util.Date;
 
 /**
- * POJO that gets information pertaining to errors encountered during execution of the program.
+ * POJO that specifies the specific error details to print in the case of any errors thrown.
  * 
- * @author Timothy Mitchell
+ * @author Judson Higley
  *
  */
 

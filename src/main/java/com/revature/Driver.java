@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * Driver class is the main class for this project.
+ * Driver class is the entry point into the Spring Boot Rideshare back end.
  * 
- * @author Adonis Cabreja
+ * @author Judson Higley
  *
  */
 
