@@ -2,7 +2,6 @@ package com.revature.config;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -129,12 +128,10 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
     protected Map<String, Object> getTrace(HttpServletRequest request, int status) {
         Throwable exception = (Throwable) request.getAttribute("javax.servlet.error.exception");
 
-        Principal principal = request.getUserPrincipal();
 
         Map<String, Object> trace = new LinkedHashMap<String, Object>();
         trace.put("method", request.getMethod());
         trace.put("path", request.getRequestURI());
-        trace.put("principal", principal.getName());
         trace.put("query", request.getQueryString());
         trace.put("statusCode", status);
 

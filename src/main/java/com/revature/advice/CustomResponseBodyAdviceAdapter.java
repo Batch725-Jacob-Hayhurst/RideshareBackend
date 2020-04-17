@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import com.revature.services.LoggingService;
 
 /**
- * Creates advice to convert ResponseBody's during method transfer to an endpoint into an unserialized form, in order to be read, and then back into a serialized form.
+ * Creates advice to convert the bodies of responses during transfer from the client to an endpoint into an unserialized form, in order to be read, and then back into a serialized form.
  * 
  * @author Timothy Mitchell
  *
@@ -42,7 +42,7 @@ public class CustomResponseBodyAdviceAdapter implements ResponseBodyAdvice<Objec
     }
     
     /**
-	 * Advice that specifies logging the response body before it is sent. Then it reconstructs the serialized form of the response.
+	 * Advice that specifies logging the response body before it is sent. It then reconstructs the serialized form of the response.
 	 * 
 	 * @param o represents the placeholder for the response body
 	 * @param methodParameter represents represents the parameter of the response body

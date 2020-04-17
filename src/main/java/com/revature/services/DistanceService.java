@@ -17,7 +17,7 @@ import com.revature.beans.Car;
 public interface DistanceService {
  
 	public List<User> distanceMatrix (String[] origins, String[] destinations) throws ApiException, InterruptedException, IOException ;
-	List<Car> distanceCarMatrix(String[] origins, List<Car> carList) throws ApiException, InterruptedException, IOException;
+	List<Car> distanceCarMatrix(String[] origins, List<Car> carList, int numCars) throws ApiException, InterruptedException, IOException;
 	
 	// Place key googleMapAPIKey & value apiKey (to be shared on slack) into Environment Vars.
 	public  String getGoogleMAPKey();

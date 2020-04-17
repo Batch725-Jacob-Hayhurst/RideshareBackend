@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -7,7 +8,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.hamcrest.Matchers.hasSize;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,17 +17,24 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.advice.CustomRequestBodyAdviceAdapter;
+import com.revature.advice.CustomResponseBodyAdviceAdapter;
 import com.revature.beans.Batch;
 import com.revature.beans.User;
+import com.revature.config.WebConfig;
+import com.revature.services.BatchService;
+import com.revature.services.DistanceService;
 import com.revature.services.UserService;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(UserController.class)
+@WebMvcTest(controllers = UserController.class, excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {CustomRequestBodyAdviceAdapter.class, CustomResponseBodyAdviceAdapter.class, WebConfig.class})})
 public class UserControllerTest {
 	
 	@Autowired
@@ -38,6 +45,12 @@ public class UserControllerTest {
 		
 	@MockBean
 	private UserService us;
+	
+	@MockBean
+	private BatchService bs;
+	
+	@MockBean
+	private DistanceService ds;
 	
 	@Test
 	public void testGettingUsers() throws Exception {
@@ -69,8 +82,7 @@ public class UserControllerTest {
 	@Test
 	public void testGettingUserByUsername() throws Exception {
 		
-		List<User> users = new ArrayList<>();
-		users.add(new User(1, "userName", new Batch(), "adonis", "cabreja", "adonis@gmail.com", "123-456-789"));
+		User users = new User(1, "userName", new Batch(), "adonis", "cabreja", "adonis@gmail.com", "123-456-789");
 		when(us.getUserByUsername("userName")).thenReturn(users);
 		
 		mvc.perform(get("/users?username=userName"))
@@ -114,27 +126,24 @@ public class UserControllerTest {
 	public void testAddingUser() throws Exception {
 		
 		Batch batch = new Batch(111, "address");
-		User user = new User(1, "userName", batch, "adonis", "cabreja", "adonis@gmail.com", "123-456-789");
+		User user = new User(1, "userName", batch, "adonis", "cabreja", "adonis@gmail.com", "123-456-7894", "1718 Forest Hills Drive", null, "Greenville", "27858", "NC", "12 Elm Street", "Greenville", "27858", "NC");
 		user.setDriver(true);
 		user.setActive(true);
 		user.setAcceptingRides(true);
 		
-		when(us.addUser(user)).thenReturn(user);
-		
 		mvc.perform(post("/users").contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(user)))
-		   .andExpect(status().isCreated())
-		   .andExpect(jsonPath("$.userName").value("userName"));
+		   .andExpect(status().isOk());
 	}
 	
 	@Test
 	public void testUpdatingUser() throws Exception {
 		
 		Batch batch = new Batch(111, "address");
-		User user = new User(1, "userName", batch, "adonis", "cabreja", "adonis@gmail.com", "123-456-789");
+		User user = new User(1, "userName", batch, "adonis", "cabreja", "adonis@gmail.com", "123-456-7894", "1718 Forest Hills Drive", null, "Greenville", "27858", "NC", "12 Elm Street", "Greenville", "27858", "NC");
 		
 		when(us.updateUser(user)).thenReturn(user);
 		
-		mvc.perform(put("/users/{id}", 1).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(user)))
+		mvc.perform(put("/users").contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsString(user)))
 		   .andExpect(status().isOk())
 		   .andExpect(jsonPath("$.userName").value("userName"));
 	}

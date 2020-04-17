@@ -1,4 +1,4 @@
-package com.revature.services;
+package com.revature.deprecated;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,9 +13,10 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- * JSONReaderService is an interface that formats the json reader service methods.
+ * JSONReaderService provides implementation to deserialize JSON information from the client and store it
+ * properly in back end objects for storage.
  * 
- * @author Timothy Mitchell
+ * @author Judson Higley
  *
  */
 

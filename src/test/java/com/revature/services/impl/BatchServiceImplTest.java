@@ -36,16 +36,6 @@ public class BatchServiceImplTest {
 	}
 	
 	@Test
-	public void testGettingBatchByNumber() {
-		
-		Batch expected = new Batch(123, "location");
-		when(br.getOne(123)).thenReturn(expected);
-		Batch actual = bsi.getBatchByNumber(123);
-		
-		assertEquals(expected, actual);
-	}
-	
-	@Test
 	public void testGettingBatchesByLocation() {
 		
 		List<Batch> batches = new ArrayList<>();

@@ -37,16 +37,6 @@ public class CarServiceImplTest {
 	}
 	
 	@Test
-	public void testGettingCarById() {
-		
-		Car expected = new Car(1, "red", 4, 4, "Honda", "Accord", 2015, new User());
-		when(cr.getOne(1)).thenReturn(expected);
-		Car actual = csi.getCarById(1);
-		
-		assertEquals(actual, expected);
-	}
-	
-	@Test
 	public void testGettingCarByUserId() {
 		
 		Car expected = new Car(1, "red", 4, 4, "Honda", "Accord", 2015, new User());
