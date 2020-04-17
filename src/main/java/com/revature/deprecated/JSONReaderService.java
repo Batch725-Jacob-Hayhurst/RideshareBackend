@@ -72,7 +72,7 @@ public class JSONReaderService {
 		
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" }) 
+	@SuppressWarnings({ "unchecked", "rawtypes", "unused" }) 
 	public static ArrayList<Object> dataCleaner() {
 
 		// JSON parser object to parse read file
