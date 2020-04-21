@@ -1,10 +1,10 @@
 insert into batches values
-(1, 'Morgantown, WV'),
-(2, 'Reston, VA'),
-(3, 'Dallas, TX'),
-(4, 'Tampa, FL' ),
-(5, 'New York City, NY'),
-(6, 'Orlando, FL');
+(1, '496 High st. Morgantown, WV 26505'),
+(2, '11730 Plaza America Dr Reston, VA 20190'),
+(3, '701 S. Nedderman Drive Arlington, TX 76019'),
+(4, '4202 E. Fowler Avenue Tampa, FL 33620' ),
+(5, '65-30 Kissena Blvd. | Queens New York City, NY 11367'),
+(6, '6200 Metrowest Blvd Suite 208 Orlando, FL 32835');
 
 insert into admins values
 (1, 'admin1');

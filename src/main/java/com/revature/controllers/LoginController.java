@@ -69,7 +69,7 @@ public class LoginController {
 			}else {
 				info.computeIfAbsent("userNotFound", key -> new HashSet<>()).add("User not found!");
 			}
-//			System.out.println(info);
+			System.out.println(info);
 			return info;
 		}else {
 			 return errors;
