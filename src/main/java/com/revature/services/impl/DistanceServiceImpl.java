@@ -162,9 +162,11 @@ public class DistanceServiceImpl implements DistanceService {
 		
 		// Here we calculate the distances for our lists using Google maps API
 		calculateDistances(origins, destinationList, distanceList, unsortedMap); 
+		
 
 		Collections.sort(distanceList);
 		distanceList.removeIf(r -> (distanceList.indexOf(r) > (numCars-1)));
+
 
 		List<Car> carFinalList = new ArrayList<Car>();
 		for (int i = 0; i < distanceList.size(); i++) {
@@ -211,6 +213,9 @@ public class DistanceServiceImpl implements DistanceService {
 	 * @param destinationList An empty List<String> that we will populate with a list of destinations
 	 * @param carDestMap An empty Map<String, Car> that we will populate with key value pairs where the key is 
 	 * the address, and the value is a Car object
+	 * 
+	 *  Unfixed Bug: If two people share a home address then one of them gets overwritten because the home address
+	 *  			 is the key value in carDestMap
 	 */
 	public void destinationAddressSetup(List<Car> carList, List<String> destinationList, Map<String, Car> carDestMap) {
 		for (Car d : carList) {
@@ -222,6 +227,7 @@ public class DistanceServiceImpl implements DistanceService {
 			destinationList.add(fullAdd);
 			carDestMap.put(fullAdd, d);
 		}
+
 	}
 	
 	/**

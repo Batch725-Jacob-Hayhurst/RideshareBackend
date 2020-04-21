@@ -12,7 +12,6 @@ insert into admins values
 insert into users values 
 (1, 'gpichmann0@artisteer.com', 'Grady', '609 Legacy Pride Dr', '#348', 'Herndon', 'VA', '20170', false, false, false, 'Pichmann', '212-374-3466', 'gpichmann0', '30401 Esker Point', 'Des Moines', 'IA', '50347', 1),
 (2, 'smigheli1@indiatimes.com', 'Salvidor', '561 Florida Ave', '', 'Herndon', 'VA', '20170', true, true, true, 'Migheli', '614-513-2776', 'smigheli1', '35747 3rd Park', 'Philadelphia', 'PA', '19131', 1),
-(3, 'fbraunroth2@ebay.co.uk', 'Fabien', '12919 Alton Square', '', 'Herndon', 'VA', '20170', true, true, true, 'Braunroth', '402-694-8099', 'fbraunroth2', '747 Crownhardt Place', 'New York City', 'NY', '10270', 3),
 (4, 'aocullen3@google.com.au', 'Aldon', '2456 Masons Ferry Dr', '', 'Herndon', 'VA', '20171', true, false, false, 'O''Cullen', '607-732-5313', 'aocullen3', '2 Killdeer Avenue', 'Norwalk', 'CT', '06859', 4),
 (5, 'hgledhill4@hatena.ne.jp', 'Hilda', '496 High St', '', 'Morgantown', 'WV', '26505', true, true, true, 'Gledhill', '239-528-0279', 'hgledhill4', '45476 Oriole Drive', 'Winston Salem', 'NC', '27110', 5),
 (6, 'sdehoogh5@cnn.com', 'Simonne', '2 West St', '', 'Westover', 'WV', '26501', false, false, true, 'De Hoogh', '206-506-8925', 'sdehoogh5', '68 Almo Terrace', 'New York City', 'NY', '10029', 6),
@@ -31,17 +30,22 @@ insert into users values
 (19, 'gtootellj@latimes.com', 'Geneva', '609 James Cirone Way', '', 'Herndon', 'VA', '20170', false, false, false, 'Tootell', '714-167-0152', 'gtootellj', '61696 Algoma Park', 'Terre Haute', 'IN', '47812', 2),
 (20, 'cgeertzk@senate.gov', 'Cissy', '2482 Masons Ferry Dr', '', 'Herndon', 'VA', '20171', false, false, true, 'Geertz', '281-310-3238', 'cgeertzk', '3 Dexter Alley', 'Frederick', 'MD', '21705', 2),
 (21, 'lozintsevl@freewebs.com', 'Lynn', '1216 Wilshire Dr', '', 'Herndon', 'VA', '20170', true, true, true, 'Ozintsev', '704-108-6483', 'lozintsevl', '38 Muir Plaza', 'Pittsburgh', 'PA', '15210', 2),
-(22, 'tex@country.web', 'Jim', '701 S Nedderman Drive', '', 'Arlington', 'TX', '76019', true, true, true, 'Dangle', '704-124-5678', 'BigJim', '230 N Center St', 'Arlington', 'TX', '76011', 3),
 (23, 'kfed@kpop.com', 'Kyle', '1400 Lake Fairfax Dr', '', 'Reston', 'VA', '20190', true, true, true, 'Fields', '703-203-6835', 'KFED', '11730 Plaza America Dr. 2nd Floor', 'Reston', 'VA', '20190', 2), 
 (24, 'ManDude@DudeMan.net', 'Dude', '11730 Plaza America Dr 2nd Floor', '', 'Reston', 'VA', '20190', true, true, true, 'Man', '893-444-3245', 'ManDude', '1301 S Crossbow Pl', 'Chandler', 'AZ', '85286', 2),
-(25, 'peppercorn@gmail.com', 'Danny', '11710 America Drive', '', 'Reston', 'VA', '20190', true, true, true, 'DeVito', '666-777-9999', 'magnumdriver', '2101 Raven Court', 'Herndon', 'VA', '20170' , 2),
-(26, 'deebo@morganstate.com', 'Deebo', '701 S Nedderman Drive', '', 'Arlington', 'TX', '76019', true, true, true, 'Diango', '214-009-9007', 'Diango99', '3125 Woodbridge Dr', 'Bedford', 'TX', '76021', 3),
-(27, 'bigtex@county.com', 'Jeremy','701 S Nedderman Drive', '', 'Arlington', 'TX','76019', true, true, true, 'Worthle', '869-459-2263', 'JWorth9', '12 East Kirkland Drive', 'Dallas', 'TX','75224', 3),
+(25, 'peppercorn@gmail.com', 'Danny', '11710 America Drive', '', 'Reston', 'VA', '20190', true, true, true, 'DeVito', '666-777-9999', 'magnumdriver', '2101 Raven Court', 'Herndon', 'VA', '20170' , 2);
+
+insert into users values
+(3, 'fbraunroth2@ebay.co.uk', 'Fabien', '12919 Alton Square', '', 'Herndon', 'VA', '20170', true, true, true, 'Braunroth', '402-694-8099', 'fbraunroth2', '747 Crownhardt Place', 'New York City', 'NY', '10270', 3),
+(22, 'tex@country.web', 'Jim', '701 S Nedderman Drive', '', 'Arlington', 'TX', '76019', true, true, true, 'Dangle', '704-124-5678', 'BigJim', '230 N Center St', 'Arlington', 'TX', '76011', 3),
+(26, 'deebo@morganstate.com', 'Deebo', '702 S Nedderman Drive', '', 'Arlington', 'TX', '76019', true, true, true, 'Diango', '214-009-9007', 'Diango99', '3125 Woodbridge Dr', 'Bedford', 'TX', '76021', 3),
+(27, 'bigtex@county.com', 'Jeremy','703 S Nedderman Drive', '', 'Arlington', 'TX','76019', true, true, true, 'Worthle', '869-459-2263', 'JWorth9', '12 East Kirkland Drive', 'Dallas', 'TX','75224', 3);
+
+insert into users values
 (28, 'dudeman@sir.com', 'Kenny', '4202 E. Fowler Avenue', '', 'Tampa', 'FL', '33620', true, true, true, 'brunsworth', '763-333-3573', 'KennyMan', '3404 W Marlin Ave #123', 'Tampa', 'FL', '33611', 4),
 (29, 'cxf@sbu.com', 'Chengxi', '65-30 Kissena Blvd. | Queens', '', 'New York City', 'NY', '11367', true, true, true, 'Fan', '718-456-9156', 'cxfan97', '7488 Wilson St', 'Lindenhurst', 'NY', '11757', 5),
 (30, 'liammconverse@gmail.com', 'Liam', '4 Pennsylvania Plaza', '', 'New York City', 'NY', '10001', true, true, true, 'Converse', '703-568-4597', 'LiamC', '36 Kline Blvd', 'Whitehouse', 'NJ', '08889', 5),
 (31, 'monty@python.com', 'Monty', '6200 Metrowest Blvd Suite 208', '', 'Orlando', 'FL', '32835', true, true, true, 'Python', '123-123-1234', 'mpython', '15856 Freedom Lane', 'Apple Valley', 'MN', '55124', 6),
-(32, 'jimmy40@revature.com', 'Jiminy', '6200 Metrowest Blvd Suite 208', '', 'Orlando', 'FL', '32835', true, true, true, 'Cricket', '407-321-1940', 'LilJim', '223 E Concord St', 'Orlando', 'FL', '32801', 6);
+(32, 'jimmy40@revature.com', 'Jiminy', '6201 Metrowest Blvd Suite 208', '', 'Orlando', 'FL', '32835', true, true, true, 'Cricket', '407-321-1940', 'LilJim', '223 E Concord St', 'Orlando', 'FL', '32801', 6);
 
 
 --230 N Center St, Arlington, TX 76011
@@ -75,7 +79,7 @@ insert into cars values
 (24, 4, 'Blue', 'Tesla', 'Model X', 4, 2020, 24),
 (25, 4, 'Pink', 'Honda', 'Civic', 4, 2020, 25),
 (26, 4, 'Orange', 'Mercedes-Benz', 'S-Class', 4, 2020, 26),
-(27, 4, 'Blue', 'Nissan', 'Altima' , 5, 2007, 27),
+-- (27, 4, 'Blue', 'Nissan', 'Altima' , 5, 2007, 27),
 (28, 3, 'Green', 'Ford', 'Escort mk ii' , 4, 1975, 28),
 (29, 3, 'Black', 'Tesla', 'Model S', 4, 2019, 29),
 (30, 5, 'White', 'Ford', 'Bronco', 5, 1990, 30),

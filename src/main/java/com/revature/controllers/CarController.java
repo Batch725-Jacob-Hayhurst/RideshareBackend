@@ -70,7 +70,8 @@ public class CarController {
 	public List<Car> getTopCars(@PathVariable("address") String address) throws ApiException, InterruptedException, IOException {
 		String[] origins = { address };
 		List<Car> carList = cs.getCarsByLocation(address);
-//		System.out.println(carList);
+		
+		
 		return ds.distanceCarMatrix(origins, carList, 10);
 	}
 
